@@ -9,4 +9,5 @@
 	<link href="/includes/css/bootstrap.css" rel="stylesheet">
 	<link href="/includes/css/jquery-ui.min.css" rel="stylesheet">
 	<link href="/includes/css/main.css" rel="stylesheet">
+	<link href="/includes/css/slider.css" rel="stylesheet">
 </head>

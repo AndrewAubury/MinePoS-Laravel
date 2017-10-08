@@ -1,3 +1,11 @@
+<?php
+if (!function_exists('menuActiveRoute')) {
+    function menuActiveRoute($routeName, $includeClass = true, $className = 'active') {
+        $activeClass = ($includeClass ? "class=\"{$className}\"": $className);
+        return preg_match('/^' . preg_quote($routeName, '/') . '/', \Request::route()->getName()) ? $activeClass: '';
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 	@include('admin.parts.head')
@@ -13,6 +21,7 @@
 							{{ session('good') }}
 						</div>
 					@endif
+					
 					@if (session('bad'))
 						<div class="alert alert-danger">
 							{{ session('bad') }}

@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper" data-spy="affix">
 			<ul class="sidebar">
-				<li class=""><a href="{{url('/admin/')}}"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+				<li {!! menuActiveRoute('admin.index') !!}><a href="{{url('/admin/')}}"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
 				<li>
 					<a href="#" data-toggle="collapse" data-target="#packages" data-parent="#sidebar-wrapper" class="collapsed">
 						<span class="glyphicon glyphicon-folder-open"></span> Packages <span class="glyphicon glyphicon-menu-down"></span>
@@ -46,24 +46,24 @@
 						</ul>
 					</div>
 				</li>
-				<li>
+				<li {!! menuActiveRoute('admin.servers') !!}>
 					<a href="#" data-toggle="collapse" data-target="#servers" data-parent="#sidebar-wrapper" class="collapsed">
 						<span class="glyphicon glyphicon-hdd"></span> Servers <span class="glyphicon glyphicon-menu-down"></span>
 					</a>
 					<div class="collapse" id="servers" style="height: 0px;">
 						<ul class="nav nav-list">
-							<li><a href="{{url('/admin/servers')}}#create-servers-tab">Create Serve</a></li>
+							<li><a href="{{url('/admin/servers')}}#create-servers-tab">Create Server</a></li>
 							<li><a href="{{url('/admin/servers')}}#servers-tab">Manage Servers</a></li>
 						</ul>
 					</div>
 				</li>
-				<li>
+				<li {!! menuActiveRoute('admin.admins') !!}>
 					<a href="#" data-toggle="collapse" data-target="#admins" data-parent="#sidebar-wrapper" class="collapsed">
 						<span class="glyphicon glyphicon-user"></span> Admins <span class="glyphicon glyphicon-menu-down"></span>
 					</a>
 					<div class="collapse" id="admins" style="height: 0px;">
 						<ul class="nav nav-list">
-							<li><a href="{{url('/admin/admins')}}#create-admins-tab">Create Admin Account	</a></li>
+							<li class=""><a href="{{url('/admin/admins')}}#create-admins-tab">Create Admin Account	</a></li>
 							<li><a href="{{url('/admin/admins')}}#admins-tab">Manage Admins</a></li>
 						</ul>
 					</div>

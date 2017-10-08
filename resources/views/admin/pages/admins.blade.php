@@ -24,16 +24,16 @@
 										<div class="th">Last IP</div>
 									</div>
 								</div>
-								@include('admin.parts.forms.listadmins')
+								@include('admin.parts.forms.admins.listadmins')
 							</div> 
 							<p>Click a row to edit it</p>
 						</div>
 						<div class="tab-pane minepos-form fade" id="create-admins-tab">
-							@include('admin.parts.forms.createadmin')
+							@include('admin.parts.forms.admins.createadmin')
 						</div>
 						@foreach(\App\Admin::all() as $admin)
 						<div class="tab-pane minepos-modal minepos-form fade" id="{{$admin->id}}">
-							@include('admin.parts.forms.editadmin')
+							@include('admin.parts.forms.admins.editadmin')
 						</div>
 						@endforeach
 					</div>

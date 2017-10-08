@@ -20,7 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('salt');
             $table->string('password');
             $table->string('remember_token')->nullable();
-            $table->boolean('tfa_enabled')->default(false);
+            $table->boolean('tfa_enabled')->default(0);
             $table->string('tfa_key')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->ipAddress('last_ip')->nullable();

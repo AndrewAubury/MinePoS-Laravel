@@ -12,20 +12,23 @@ class Admin extends Authenticatable
  protected static function boot()
     {
         static::creating(function ($model) {
-            $model->salt = $model->generateRandomString(10);
-            $model->password = sha1($model->password.sha1($model->salt));
+            $model->onUpdating($model);
         });	
         static::updating(function ($model) {
-            $model->onUpdating();
+            $model->onUpdating($model);
         });
     }
+
+
+protected $visible = ["*"];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password',
     ];
     protected $dates = ['last_login'];
 
@@ -33,7 +36,12 @@ class Admin extends Authenticatable
     	return (sha1($passwordInput.sha1($this->salt)) == $this->password);
     }
 
-	public function onUpdating(){
+	public function onUpdating($model){
+        if($model->getOriginal('password') != $model->password){
+        $model->salt = $model->generateRandomString(10);
+        $model->password = sha1($model->password.sha1($model->salt));
+        }
+        
            // $model->password = hash("sha256", $model->password.hash("sha256", $model->salt));
 	}
 	public function generateRandomString($nbLetters){
